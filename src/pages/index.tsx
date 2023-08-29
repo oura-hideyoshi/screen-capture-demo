@@ -1,24 +1,22 @@
-import { NextPage } from "next";
+import { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  var  displayMediaStreamConstraints = {
+  const displayMediaStreamConstraints = {
     video: true, // or pass HINTS
   };
 
-  if (navigator.mediaDevices.getDisplayMedia) {
-    navigator.mediaDevices
-      .getDisplayMedia(displayMediaStreamConstraints)
-      .then(success)
-      .catch(error);
-  } else {
-    navigator
-      .getDisplayMedia(displayMediaStreamConstraints)
-      .then(success)
-      .catch(error);
-  }
+  const captureScreen = async () => {
+    if (navigator.mediaDevices.getDisplayMedia) {
+      const mediaStream = await navigator.mediaDevices.getDisplayMedia(
+        displayMediaStreamConstraints,
+      );
+      console.log('mediaStream', mediaStream);
+    }
+  };
   return (
     <div>
       <h1>Home</h1>
+      <button onClick={captureScreen}>capture</button>
     </div>
   );
 };
