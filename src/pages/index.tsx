@@ -8,12 +8,13 @@ const Home: NextPage = () => {
   };
 
   const handleSuccess = (stream: MediaStream) => {
+    // 1. get video element
     const videoElement = document.getElementById(
       'videoElement',
     ) as HTMLVideoElement;
 
+    // 2. set video src to above video element
     videoElement.srcObject = stream;
-    stream.getVideoTracks()[0].addEventListener('ended', () => {});
   };
 
   const handleError = (error: Error) => {
