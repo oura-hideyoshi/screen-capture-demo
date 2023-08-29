@@ -1,16 +1,11 @@
 import { Analytics } from '@vercel/analytics/react';
+import type { AppProps } from 'next/app';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-        <Analytics />
-      </body>
-    </html>
+    <>
+      <Analytics />
+      <Component {...pageProps} />
+    </>
   );
 }
