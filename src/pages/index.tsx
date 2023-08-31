@@ -12,6 +12,11 @@ const Home: NextPage = () => {
         <li>
           <Link href={'/save-screen-shot'}>save screen shot</Link>
         </li>
+        <li>
+          <Link href={'/save-screen-shot-to-browser'}>
+            save screen shot to browser
+          </Link>
+        </li>
       </ul>
     </div>
   );
